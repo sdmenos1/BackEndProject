@@ -25,12 +25,11 @@ export const query = async (text, params) => {
   }
 }
 
-// Función para obtener un cliente de la pool
 export const getClient = async () => {
   return await pool.connect()
 }
 
-// Función para cerrar la pool
+
 export const closePool = async () => {
   await pool.end()
 }

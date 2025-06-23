@@ -18,9 +18,7 @@ export const validateRequest = (schema) => {
   }
 }
 
-// Esquemas de validación actualizados
 export const schemas = {
-  // Autenticación - ACTUALIZADO para aceptar nombres y apellidos separados
   register: z.object({
     nombres: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
     apellidos: z.string().min(2, "Los apellidos deben tener al menos 2 caracteres"),
@@ -44,7 +42,6 @@ export const schemas = {
     password: z.string().min(1, "Contraseña requerida"),
   }),
 
-  // Habitaciones - Con los 5 tipos finales
   room: z.object({
     numero: z.string().min(1, "Número de habitación requerido"),
     tipo: z.enum(["estándar", "doble", "triple", "matrimonial", "suite"], {
@@ -55,7 +52,6 @@ export const schemas = {
     estado: z.enum(["disponible", "ocupada", "mantenimiento"]).default("disponible"),
   }),
 
-  // Reservas (sin cambios)
   reservation: z.object({
     room_id: z.number().int().positive("ID de habitación requerido"),
     nombre_huesped: z.string().min(2, "Nombre del huésped requerido"),
@@ -66,7 +62,6 @@ export const schemas = {
     notas: z.string().optional(),
   }),
 
-  // Eventos (sin cambios)
   event: z.object({
     titulo: z.string().min(3, "El título debe tener al menos 3 caracteres"),
     descripcion: z.string().min(10, "La descripción debe tener al menos 10 caracteres"),
@@ -76,7 +71,6 @@ export const schemas = {
     cupo_maximo: z.number().int().positive("El cupo máximo debe ser positivo"),
   }),
 
-  // Actualizar perfil de usuario - ACTUALIZADO
   updateProfile: z.object({
     nombres: z.string().min(2, "El nombre debe tener al menos 2 caracteres").optional(),
     apellidos: z.string().min(2, "Los apellidos deben tener al menos 2 caracteres").optional(),

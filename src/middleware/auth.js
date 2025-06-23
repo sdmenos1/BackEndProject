@@ -15,7 +15,6 @@ export const authenticateToken = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-    // Verificar que el usuario existe y obtener todos los campos incluyendo DNI y TELEFONO
     const result = await query("SELECT id, nombre, email, dni, telefono, rol FROM users WHERE id = $1", [
       decoded.userId,
     ])
