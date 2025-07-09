@@ -73,10 +73,8 @@ app.use(notFound)
 app.use(errorHandler)
 
 // Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor ejecutándose en puerto ${PORT}`)
-  console.log(`📊 Ambiente: ${process.env.NODE_ENV || "development"}`)
-  console.log(`🌐 CORS habilitado para: ${process.env.FRONTEND_URL || "http://localhost:5173"}`)
-})
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
 
 export default app
