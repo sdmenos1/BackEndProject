@@ -68,9 +68,9 @@ app.get("/api/health", (req, res) => {
   })
 })
 app.get("/", (req, res) => {
+  console.log("➡️ Se ejecutó la ruta raíz /");
   res.json({ message: "API corriendo correctamente 🚀" });
 });
-
 
 app.use(notFound)
 app.use(errorHandler)
