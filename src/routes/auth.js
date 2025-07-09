@@ -7,6 +7,7 @@ import { authenticateToken } from "../middleware/auth.js"
 
 const router = express.Router()
 
+
 // Registro de usuario - ACTUALIZADO para manejar nombres y apellidos separados
 router.post("/register", validateRequest(schemas.register), async (req, res, next) => {
   try {
