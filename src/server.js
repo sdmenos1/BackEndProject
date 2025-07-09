@@ -67,6 +67,9 @@ app.get("/api/health", (req, res) => {
     timestamp: new Date().toISOString(),
   })
 })
+app.get("/", (req, res) => {
+  res.json({ message: "API corriendo correctamente 🚀" });
+});
 
 
 app.use(notFound)
@@ -75,9 +78,6 @@ app.use(errorHandler)
 // Iniciar servidor
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
-app.get("/", (req, res) => {
-  res.json({ message: "API corriendo correctamente 🚀" });
 });
 
 export default app
